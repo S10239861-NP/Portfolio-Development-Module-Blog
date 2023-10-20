@@ -1,5 +1,89 @@
+html {
+    height: 100%;
+}
+
 body {
+    font-family: 'Century Gothic';
+    color: #21649c;
+    background-color: white;
+    height: 100%;
+    margin: 0px;
+}
+
+button {
     font-family: 'Century Gothic';
 }
 
+h1, h2, p {
+    margin: 0px;
+}
 
+.main_div {
+    display: flex;
+    flex-direction: row;
+    min-height: 100%;
+}
+
+#main_side_bar {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    row-gap: 10px;
+    background-color: #21649c;
+    color: white;
+    min-height: 100%;
+    width: auto;
+}
+
+.week_blog_entry_container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: #2e83c9;
+    color: white;
+    border-color: #21649c;
+    border-width: 2px;
+}
+
+.main_content_container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+#toggle_side_bar_button {
+    font-family: 'Century Gothic';
+    display: flex;
+    background-color: #2e83c9;
+    color: white;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 0px 6px 0px;
+    flex-shrink: 0;
+}
+
+#main_side_bar > button {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #2e83c9;
+    border-width: 0px;
+    min-width: 100px;
+    color: white;
+}
+
+.main_blog_header {
+    margin-bottom: 20px;
+    align-self: center;
+}
