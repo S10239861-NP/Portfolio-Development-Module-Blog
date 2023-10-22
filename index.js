@@ -44,7 +44,7 @@ function onToggleSidebarButtonMouseUp()
 {
     let intervalState = new IntervalState();
 
-    intervalState.id = setInterval(shrinkMainSidebar, 6, intervalState);
+    intervalState.id = setInterval(shrinkMainSidebar, 2, intervalState);
 }
 
 function initToggleSidebarButton()
