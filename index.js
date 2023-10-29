@@ -1,10 +1,19 @@
-function shrinkMainSidebar(intervalState)
+function shrinkMainSidebar(intervalState, shrinkSpeed)
 {
     let currentMainSidebarWidth = parseInt(getComputedStyle(mainSidebar).width.replace("px", ""));
 
     if (currentMainSidebarWidth > 0)
     {
-        mainSidebar.style.width = (currentMainSidebarWidth - 1) + "px";
+        let newMainSidebarWidth = currentMainSidebarWidth - shrinkSpeed;
+
+        if (newMainSidebarWidth >= 0)
+        {
+            mainSidebar.style.width = newMainSidebarWidth + "px";
+        }
+        else
+        {
+            mainSidebar.style.width = "0px";
+        }
 
         updateToggleSidebarButtonPosition();
 
@@ -17,7 +26,16 @@ function shrinkMainSidebar(intervalState)
 
     if (currentMainSidebarLeftPadding > 0)
     {
-        mainSidebar.style.paddingLeft = (currentMainSidebarLeftPadding - 1) + "px";
+        let newMainSidebarLeftPadding = currentMainSidebarLeftPadding - shrinkSpeed;
+
+        if (newMainSidebarLeftPadding >= 0)
+        {
+            mainSidebar.style.paddingLeft = newMainSidebarLeftPadding + "px";
+        }
+        else
+        {
+            mainSidebar.style.paddingLeft = "0px";
+        }
 
         updateToggleSidebarButtonPosition();
 
@@ -30,7 +48,16 @@ function shrinkMainSidebar(intervalState)
 
     if (currentMainSidebarRightPadding > 0)
     {
-        mainSidebar.style.paddingRight = (currentMainSidebarRightPadding - 1) + "px";
+        let newMainSidebarRightPadding = currentMainSidebarRightPadding - shrinkSpeed;
+
+        if (newMainSidebarRightPadding >= 0)
+        {
+            mainSidebar.style.paddingRight = newMainSidebarRightPadding + "px";
+        }
+        else
+        {
+            mainSidebar.style.paddingRight = "0px";
+        }
 
         updateToggleSidebarButtonPosition();
 
@@ -44,7 +71,7 @@ function onToggleSidebarButtonMouseUp()
 {
     let intervalState = new IntervalState();
 
-    intervalState.id = setInterval(shrinkMainSidebar, 2, intervalState);
+    intervalState.id = setInterval(shrinkMainSidebar, 1, intervalState, 2);
 }
 
 function initToggleSidebarButton()
@@ -59,8 +86,8 @@ function updateToggleSidebarButtonPosition()
     toggleSidebarButton.style["left"] = mainSidebar.getBoundingClientRect().width + "px";
 }
 
-let toggleSidebarButton = document.getElementById("toggle_side_bar_button");
+let toggleSidebarButton = document.getElementById("toggleSideBarButton");
 
-let mainSidebar = document.getElementById("main_side_bar");
+let mainSidebar = document.getElementById("mainSideBar");
 
 initToggleSidebarButton();

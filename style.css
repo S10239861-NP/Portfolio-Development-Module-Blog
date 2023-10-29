@@ -14,17 +14,21 @@ button {
     font-family: 'Century Gothic';
 }
 
-h1, h2, p {
+h1, h2, h3, ul, ol, p {
     margin: 0px;
 }
 
-.main_div {
+ul, ol {
+    padding-left: 0px;
+}
+
+.main-div {
     display: flex;
     flex-direction: row;
     min-height: 100%;
 }
 
-#main_side_bar {
+#mainSideBar {
     display: flex;
     flex-direction: column;
     padding-top: 10px;
@@ -38,7 +42,7 @@ h1, h2, p {
     width: auto;
 }
 
-.week_blog_entry_container {
+.week-blog-entry-container {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -48,9 +52,16 @@ h1, h2, p {
     color: white;
     border-color: #21649c;
     border-width: 2px;
+    margin-bottom: 10px;
 }
 
-.main_content_container {
+.week-blog-entry-section-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.main-content-container {
     display: flex;
     flex-direction: column;
     row-gap: 0px;
@@ -58,7 +69,7 @@ h1, h2, p {
     padding: 10px;
 }
 
-#toggle_side_bar_button {
+#toggleSideBarButton {
     font-family: 'Century Gothic';
     display: flex;
     background-color: #2e83c9;
@@ -74,7 +85,7 @@ h1, h2, p {
     flex-shrink: 0;
 }
 
-#main_side_bar > button {
+#mainSideBar > button {
     padding: 10px;
     border-radius: 6px;
     background-color: #2e83c9;
@@ -83,7 +94,21 @@ h1, h2, p {
     color: white;
 }
 
-.main_blog_header {
+.main-blog-header {
     margin-bottom: 20px;
     align-self: center;
+}
+
+.list-element-child-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+}
+
+.ul-padding-left-16-px {
+    padding-left: 16px;
+}
+
+.li-1 {
+    margin-bottom: 4px;
 }
