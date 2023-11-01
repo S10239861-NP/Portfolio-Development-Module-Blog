@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-development-module-blog",
+  "version": "1.0.0",
+  "description": "A blog that I created for the Portfolio Development (PFD) module.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arcane",
+  "license": "ISC"
+}

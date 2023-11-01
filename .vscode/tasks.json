@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "custom_html_element_js_file_gen",
+            "type": "shell",
+            "command": [
+                "csshtml-module -i web-components/blog-post-card/main.html -o lib/blog-post-card-html.js"
+            ]
+        }
+    ]
+}
