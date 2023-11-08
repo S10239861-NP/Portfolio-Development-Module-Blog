@@ -1,93 +1,77 @@
-function shrinkMainSidebar(intervalState, shrinkSpeed)
+function onSidebarOptionClick(eventObj)
 {
-    let currentMainSidebarWidth = parseInt(getComputedStyle(mainSidebar).width.replace("px", ""));
+    let mappedHTMLElement = sidebarOptionToHTMLElementMap.get(eventObj.target);
 
-    if (currentMainSidebarWidth > 0)
+    let targetScrollTop = mappedHTMLElement.offsetTop;
+
+    if (mappedHTMLElement.tagName != "BLOG-POST-CARD")
     {
-        let newMainSidebarWidth = currentMainSidebarWidth - shrinkSpeed;
-
-        if (newMainSidebarWidth >= 0)
-        {
-            mainSidebar.style.width = newMainSidebarWidth + "px";
-        }
-        else
-        {
-            mainSidebar.style.width = "0px";
-        }
-
-        updateToggleSidebarButtonPosition();
-
-        return;
+        targetScrollTop -= 8;
     }
 
-    let currentMainSidebarLeftPadding = parseInt(
-        getComputedStyle(mainSidebar).paddingLeft.replace("px", "")
-    );
-
-    if (currentMainSidebarLeftPadding > 0)
+    if (mappedHTMLElement != undefined)
     {
-        let newMainSidebarLeftPadding = currentMainSidebarLeftPadding - shrinkSpeed;
-
-        if (newMainSidebarLeftPadding >= 0)
-        {
-            mainSidebar.style.paddingLeft = newMainSidebarLeftPadding + "px";
-        }
-        else
-        {
-            mainSidebar.style.paddingLeft = "0px";
-        }
-
-        updateToggleSidebarButtonPosition();
-
-        return;
+        window.scroll(
+            {
+                left: 0,
+                top: targetScrollTop,
+                behavior: "smooth"
+            }
+        );
     }
+}
 
-    let currentMainSidebarRightPadding = parseInt(
-        getComputedStyle(mainSidebar).paddingRight.replace("px", "")
-    );
+let mainSidebar = document.getElementById("mainSidebar");
 
-    if (currentMainSidebarRightPadding > 0)
+let blogPostCards = document.getElementsByTagName("blog-post-card");
+
+let contactSidebarOption = null;
+
+let sidebarOptionToHTMLElementMap = new Map();
+
+for (let currentSidebarOptionIndex = 0; currentSidebarOptionIndex < mainSidebar.childNodes.length; currentSidebarOptionIndex++)
+{
+    let currentSidebarOption = mainSidebar.childNodes.item(currentSidebarOptionIndex);
+
+    if (currentSidebarOption.innerText == "Contact")
     {
-        let newMainSidebarRightPadding = currentMainSidebarRightPadding - shrinkSpeed;
+        contactSidebarOption = currentSidebarOption;
 
-        if (newMainSidebarRightPadding >= 0)
-        {
-            mainSidebar.style.paddingRight = newMainSidebarRightPadding + "px";
-        }
-        else
-        {
-            mainSidebar.style.paddingRight = "0px";
-        }
-
-        updateToggleSidebarButtonPosition();
-
-        return;
+        break;
     }
-
-    clearInterval(intervalState.id);
 }
 
-function onToggleSidebarButtonMouseUp()
+for (let currentBlogPostCardIndex = 0; currentBlogPostCardIndex < blogPostCards.length; currentBlogPostCardIndex++)
 {
-    let intervalState = new IntervalState();
+    let currentBlogPostCard = blogPostCards.item(currentBlogPostCardIndex);
 
-    intervalState.id = setInterval(shrinkMainSidebar, 1, intervalState, 2);
+    let newSidebarOption = document.createElement("a");
+
+    newSidebarOption.innerText = currentBlogPostCard.getAttribute("header");
+
+    newSidebarOption.addEventListener("click", onSidebarOptionClick);
+
+    mainSidebar.insertBefore(newSidebarOption, contactSidebarOption);
+
+    sidebarOptionToHTMLElementMap.set(newSidebarOption, currentBlogPostCard);
+
+    let currentBlogPostCardSubHeaders = currentBlogPostCard.getElementsByTagName("h3");
+
+    for (let currentBlogPostCardSubHeaderIndex = 0; currentBlogPostCardSubHeaderIndex < currentBlogPostCardSubHeaders.length; currentBlogPostCardSubHeaderIndex++)
+    {
+        let newSidebarSubOption = document.createElement("a");
+
+        newSidebarSubOption.innerText = currentBlogPostCardSubHeaders[currentBlogPostCardSubHeaderIndex].innerText;
+
+        newSidebarSubOption.style["paddingLeft"] = "8px";
+
+        newSidebarSubOption.addEventListener("click", onSidebarOptionClick);
+
+        mainSidebar.insertBefore(newSidebarSubOption, contactSidebarOption);
+
+        sidebarOptionToHTMLElementMap.set(newSidebarSubOption, currentBlogPostCardSubHeaders[currentBlogPostCardSubHeaderIndex]);
+    }
 }
 
-function initToggleSidebarButton()
-{
-    updateToggleSidebarButtonPosition();
 
-    toggleSidebarButton.addEventListener("mouseup", onToggleSidebarButtonMouseUp);
-}
 
-function updateToggleSidebarButtonPosition()
-{
-    toggleSidebarButton.style["left"] = mainSidebar.getBoundingClientRect().width + "px";
-}
-
-let toggleSidebarButton = document.getElementById("toggleSideBarButton");
-
-let mainSidebar = document.getElementById("mainSideBar");
-
-initToggleSidebarButton();
