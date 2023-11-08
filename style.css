@@ -127,9 +127,11 @@ img {
 }
 
 .main-sidebar-option {
+    display: flex;
+    padding: 4px;
     color: white;
 }
 
 .main-sidebar-option:hover {
-    color: rgb(216, 216, 216);
+    background-color: #246fac;
 }

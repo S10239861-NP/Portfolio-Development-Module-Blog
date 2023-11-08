@@ -65,7 +65,7 @@ for (let currentBlogPostCardIndex = 0; currentBlogPostCardIndex < blogPostCards.
 
         newSidebarSubOption.innerText = currentBlogPostCardSubHeaders[currentBlogPostCardSubHeaderIndex].innerText;
 
-        newSidebarSubOption.style["paddingLeft"] = "8px";
+        newSidebarSubOption.style["marginLeft"] = "10px";
 
         newSidebarSubOption.addEventListener("click", onSidebarOptionClick);
 
