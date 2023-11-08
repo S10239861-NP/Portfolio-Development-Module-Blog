@@ -21,25 +21,29 @@ function onSidebarOptionClick(eventObj)
     }
 }
 
+function onContactMainSidebarOptionClick()
+{
+
+}
+
+function onViewGithubRepoMainSidebarOptionClick()
+{
+    window.open("https://github.com/S10239861-NP/Portfolio-Development-Module-Blog", "_blank");
+}
+
 let mainSidebar = document.getElementById("mainSidebar");
 
 let blogPostCards = document.getElementsByTagName("blog-post-card");
 
-let contactSidebarOption = null;
+let contactMainSidebarOption = document.getElementById("contactMainSidebarOption");
+
+let viewGithubRepoMainSidebarOption = document.getElementById("viewGithubRepoMainSidebarOption");
 
 let sidebarOptionToHTMLElementMap = new Map();
 
-for (let currentSidebarOptionIndex = 0; currentSidebarOptionIndex < mainSidebar.childNodes.length; currentSidebarOptionIndex++)
-{
-    let currentSidebarOption = mainSidebar.childNodes.item(currentSidebarOptionIndex);
+contactMainSidebarOption.addEventListener("click", onContactMainSidebarOptionClick);
 
-    if (currentSidebarOption.innerText == "Contact")
-    {
-        contactSidebarOption = currentSidebarOption;
-
-        break;
-    }
-}
+viewGithubRepoMainSidebarOption.addEventListener("click", onViewGithubRepoMainSidebarOptionClick);
 
 for (let currentBlogPostCardIndex = 0; currentBlogPostCardIndex < blogPostCards.length; currentBlogPostCardIndex++)
 {
@@ -53,7 +57,7 @@ for (let currentBlogPostCardIndex = 0; currentBlogPostCardIndex < blogPostCards.
 
     newSidebarOption.classList.add("main-sidebar-option");
 
-    mainSidebar.insertBefore(newSidebarOption, contactSidebarOption);
+    mainSidebar.insertBefore(newSidebarOption, contactMainSidebarOption);
 
     sidebarOptionToHTMLElementMap.set(newSidebarOption, currentBlogPostCard);
 
@@ -71,7 +75,7 @@ for (let currentBlogPostCardIndex = 0; currentBlogPostCardIndex < blogPostCards.
 
         newSidebarSubOption.classList.add("main-sidebar-option");
 
-        mainSidebar.insertBefore(newSidebarSubOption, contactSidebarOption);
+        mainSidebar.insertBefore(newSidebarSubOption, contactMainSidebarOption);
 
         sidebarOptionToHTMLElementMap.set(newSidebarSubOption, currentBlogPostCardSubHeaders[currentBlogPostCardSubHeaderIndex]);
     }
