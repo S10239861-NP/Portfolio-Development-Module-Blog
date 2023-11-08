@@ -51,6 +51,8 @@ for (let currentBlogPostCardIndex = 0; currentBlogPostCardIndex < blogPostCards.
 
     newSidebarOption.addEventListener("click", onSidebarOptionClick);
 
+    newSidebarOption.classList.add("main-sidebar-option");
+
     mainSidebar.insertBefore(newSidebarOption, contactSidebarOption);
 
     sidebarOptionToHTMLElementMap.set(newSidebarOption, currentBlogPostCard);
@@ -66,6 +68,8 @@ for (let currentBlogPostCardIndex = 0; currentBlogPostCardIndex < blogPostCards.
         newSidebarSubOption.style["paddingLeft"] = "8px";
 
         newSidebarSubOption.addEventListener("click", onSidebarOptionClick);
+
+        newSidebarSubOption.classList.add("main-sidebar-option");
 
         mainSidebar.insertBefore(newSidebarSubOption, contactSidebarOption);
 

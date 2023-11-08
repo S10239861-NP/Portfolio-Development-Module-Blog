@@ -125,3 +125,11 @@ img {
 .li-1 {
     margin-bottom: 6px;
 }
+
+.main-sidebar-option {
+    color: white;
+}
+
+.main-sidebar-option:hover {
+    color: rgb(216, 216, 216);
+}
