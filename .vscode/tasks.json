@@ -2,12 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "custom_html_element_js_file_gen",
-            "type": "shell",
-            "command": [
-                "csshtml-module -i web-components/blog-post-card/main.html -o lib/blog-post-card-html.js",
-                "csshtml-module -i web-components/side-bar/main.html -o lib/side-bar-html.js"
-            ],
+            "label": "run",
+            "type": "process",
+            "command": "tasks/run.bat",
             "presentation": {
                 "echo": false,
                 "reveal": "never",

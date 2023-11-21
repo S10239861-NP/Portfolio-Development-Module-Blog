@@ -41,26 +41,6 @@ let viewGithubRepoMainSidebarOption = document.getElementById("viewGithubRepoMai
 
 let sidebarOptionToHTMLElementMap = new Map();
 
-/*
-let mainSidebarChildListMutationObserver = new MutationObserver((mutations) =>
-{
-    for (const mutation of mutations)
-    {
-        if (mutation.type == "childList")
-        {
-            mainSidebar.setAttribute(
-                "sidebar-height",
-                window.getComputedStyle(mainSidebar).height + 500
-            );
-        }
-    }
-});
-
-mainSidebarChildListMutationObserver.observe(mainSidebar, {
-    childList: true
-});
-*/
-
 contactMainSidebarOption.addEventListener("click", onContactMainSidebarOptionClick);
 
 viewGithubRepoMainSidebarOption.addEventListener("click", onViewGithubRepoMainSidebarOptionClick);

@@ -1,0 +1,45 @@
+/* GOOGLE FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Poppins";
+    background-color: rgb(42, 42, 42);
+    color: white;
+    height: 100%;
+    margin: 0px;
+}
+
+button {
+    font-family: "Poppins";
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol, p {
+    margin: 0px;
+}
+
+.main-content-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    height: 100vh;
+}
+
+.about-me-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin: 0px 20px;
+    border-radius: 16px;
+    background-color: #2e83c9;
+    color: white;
+    padding: 16px;
+    transition: all 0.4s;
+}
+
+.about-me-container:hover {
+    background-color: #2991e6;
+}

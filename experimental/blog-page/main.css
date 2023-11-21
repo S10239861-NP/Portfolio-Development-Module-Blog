@@ -1,0 +1,30 @@
+/* GOOGLE FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Poppins";
+    background-color: rgb(42, 42, 42);
+    color: white;
+    height: 100%;
+    margin: 0px;
+}
+
+button {
+    font-family: "Poppins";
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol, p {
+    margin: 0px;
+}
+
+.main-content-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    height: 100vh;
+    padding: 0px 20px;
+}

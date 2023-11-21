@@ -10,7 +10,7 @@
             "type": "chrome",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}",
-            "preLaunchTask": "custom_html_element_js_file_gen"
+            "preLaunchTask": "run"
         }
     ]
 }
